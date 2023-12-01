@@ -1,69 +1,49 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const rparent = React.createElement(
-    "div",
-    {
-        id: "parent"
-    },
-    [
-        React.createElement(
-            "h1",
-            {
-                id: "rh1"
-            },
-            "Namaste from React!"
-        ),
+// React Functional Component
+const Title = function() {
+    return (
+        <h1>Nihao from Title😍</h1>
+    );
+}
 
-        React.createElement(
-            "div",
-            {
-                id: "child1"
-            },
-            
-            [
-                React.createElement(
-                    "h1",
-                    {},
-                    "Namaste from h1 of child1"
-                ),
-    
-                React.createElement(
-                    "h2",
-                    {},
-                    "Namaste from h2 of child1"
-                )
-    
-            ]
-        ),
 
-        React.createElement(
-            "div",
-            {
-                id: "child2"
-            },
-            
-            [
-                React.createElement(
-                    "h1",
-                    {},
-                    "Namaste from h1 of child2"
-                ),
-    
-                React.createElement(
-                    "h2",
-                    {},
-                    "Namaste from h2 of child2"
-                )
-    
-            ]
-        )
-    ]
-    
+const user = {
+
+    fname: "Kyle",
+
+    lname: "Kulinski",
+
+    getName: function() {
+
+        return `${this.fname} ${this.lname}`;
+    }
+};
+
+// React Functional Component
+const HeadingComponent = () => (
+    <div id="container">
+        <Title></Title>
+        {user.getName()}
+        {Title()}
+        <h1 className="heading">Hola from 
+        React Functional Component🚀🚀🚀</h1>
+    </div>
 );
 
-const reactdomroot = ReactDOM.createRoot(
+// React Element
+const re1 = <span>ReactElement1</span>;
+const heading = (<h1>
+    <Title />
+    {re1}
+    Injected React Element👌
+    {"Ichiban"}
+    <HeadingComponent />
+    </h1>);
+
+const reactroot = ReactDOM.createRoot(
     document.getElementById("reactroot")
 );
 
-reactdomroot.render(rparent);
+reactroot.render(heading);
