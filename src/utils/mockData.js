@@ -1,66 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-
-    return (
-        <div className="header">
-
-            <div className="logo-container">
-                <img 
-                    className="logo" 
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAilBMVEX////rFwDqAADwb2vyg334w8LrDgD+9fTpAAD5xMH4v7z60M396+r5yMX84d/6zcv1op7zjIf729nyfXj3tbHxdW/sHgv0lZD/+PftPTL3rqruT0fuRjz1nZnxbWbvXFTsKhvtMibwYVr3s6/sJhb2p6P95+XzkYztPjTyiILygXvwZV7sLiHvV04O0BgOAAADz0lEQVR4nO2di1IiMRBFZxo2oAg6DA9FRFBEXfT/f2/BsrTKra3NjZN0erznC3KqJ5P0g6EoCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBDSPA/TTp5M6261OB2cfdNv7CR3Zst6Eq65E1dmzyEI/fXzIMxwJdrL9+Rg6aYhklYE3xBZX/RAwTNThm+R7IJb0phheQxkDcVxak/x4DgHDHsW3qV/IbOhv+LAYBAP+7G/umy5YinO/+gwquiA3WhUsZRbb8Vzq4ob77PRahSdG7U9ik5+gOLYV3FoVvEHRNH7mmo2ile+hmYV5a79ihfeiidWFf3vqEaj6GbehlajKN3WK/aBMtypSUW38Tc0GkVZAIo2oyj+ZQ2jilIDhkYVoVKxRUXkxLCqiPU0JvYUoVK4TUXg7mZUUU7bruiWoKE9RezAOHJvTFFuUENrikDJ5oOFLUX/0qJVRaBi88nEUpfYXQcYFgMxFEbw5vZOr9M34ygnIYZFMarL1MNsgVtDqjDDA+PJ/LmbjnopQZsjbCMqMa5CHEV72RCXFf6w+vcT82DkUEWZaK8Z5GwLKsqj9pJR0OlJ2WuvGAbsTUPF70wAx5jRUkYGgM9p2L1NlzvoZYPn+fpgxRRrB+IR7DEFOt75gD2lwPhwNqwRxdD8SZUNZIiWhXNgCz2lFmOIvWnOtZeLM2r9u/QCMwwomWpz1fY7DZpcIDMZeYCF0G211wszB0MI9xC1QXuY4ESGPnB7Tx60l4zRhSumtg78SYmXhO2k+LvzahbQvAjpAnvTe3xqtjkD65Xo/B7GKLhf1CQxS95lBn5R72x59PvdUzTBopOFYcBAjTd3eRhGTJ3A62Mcol5KdzkYQgP7MFgmHskw7oWmUleUaVTBDBTjtyyedRVTTJroKibpWPxWVIyaVnyCp6yNkSr3rbUU0817aSkm7P3qKMZMffNQTFvqVviAWOq+aHJFWaUVTK7oytSCqb84qTJDk7KqETct/Cfpohg9adJWFL3h9X0SRVkrNn1TKLq1aismvqKbKfeaYivKVr2ZFldRXtQFi+I2oqIss5gsiVful4622zuRouiCfi8ahyhRlDKnee4IUZR9Flvwg6YVJb/fbzWq6KSTwSHxldfGFJ0sc9qBnzSk6OQl20n16wYURZ6y9SsaiKLIPvMZ7u+ci8f/ipnnP998E/h1hoPdpso8fO/sXsHRsLe/+XGrxU575f6Mqitgdm97Pb05yf/Z/EpvPPz1X4bDwdieGiGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghJDJ/AHlGV+A37mBNAAAAAElFTkSuQmCC"/>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Add Restaurant</li>
-                    <li>Log in</li>
-                    <li>Sign up</li>
-                </ul>
-            </div>
-        </div>
-    );
-}
-
-const styleCard = {
-
-    backgroundColor: "white"
-};
-
-const ResCard = (props) => {
-
-    const { resData } = props;
-
-    const {
-        cloudinaryImageId, 
-        name, 
-        cuisines, 
-        areaName, 
-        avgRating, 
-        costForTwo
-    } = resData?.info;
-    
-
-    return (
-        <div style={styleCard}
-        
-        className="res-card">
-            <img 
-            
-            className="res-img"
-            
-            src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId}/>
-            <h3>{name}</h3>
-            <h5>{cuisines.join(", ")}</h5>
-            <h5>{areaName}</h5>
-            <h4>{avgRating}</h4>
-            <h4>{costForTwo}</h4>
-
-        </div>
-    );
-}
-
-const resList = [
+export let resList = [
     {
       info: {
         id: "281469",
@@ -1962,38 +1900,5 @@ const resList = [
         type: "WEBLINK"
       }
     }
-  ];
+];
 
-const Body = () => {
-
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-            {resList.map(restaurant => (<ResCard 
-            key={restaurant.info.id}
-            
-            resData={restaurant} />))}
-           
-            </div>
-        </div>
-    );
-}
-
-
-
-const AppLayout = () => {
-
-    return (
-        <div className="app">
-        <Header />
-        <Body />
-        </div>
-    );
-}
-
-const root = ReactDOM.createRoot(
-    document.getElementById("root")
-);
-
-root.render(<AppLayout />);
